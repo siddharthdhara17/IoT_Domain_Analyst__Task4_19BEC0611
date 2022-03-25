@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>IOT LAB TASK-GET DATA</title>
+<style type="text/css">
+      img {
+	    display: block;
+	     margin: 0 auto 0 auto;
+	}
+	</style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+	<body bgcolor="#FFEE00">
+	<center>
+		<h1 style="font-family: Helvetica;color: black;">IoT LAB TASK</h1>
+	  </center>
+	<img src="vit logo.jpg" alt="Vit-Logo" />
+    <div class="mypanel"></div>
+	
+
+    <script>
+    $.getJSON('https://api.thingspeak.com/channels/1680470/feeds.json?api_key=P8GTS3VLT0L67PY8&results=2', function(data) {
+        
+        var text = `MYData: ${data.feeds[1].field1}<br>
+                    Data1: ${data.channel}<br>`
+                    
+        
+        $(".mypanel").html(text);
+    });
+    </script>
+    
+</body>
+</html>
